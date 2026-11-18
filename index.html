@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flag Finder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Flag Finder home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M5 21V4m0 1h10l-1.8 4L15 13H5"/></svg>
+        </span>
+        <span>Flag Finder</span>
+      </a>
+
+      <div class="scoreboard" aria-label="Game statistics">
+        <div class="stat">
+          <span class="stat-label">Score</span>
+          <strong id="score">0</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Streak</span>
+          <strong id="streak">0</strong>
+        </div>
+      </div>
+    </header>
+
+    <section id="setupScreen" class="setup-screen">
+      <div class="setup-card">
+        <p class="eyebrow">World Geography</p>
+        <h1>How many flags can<br>you identify?</h1>
+        <p class="setup-copy">Choose a challenge and test your country knowledge.</p>
+
+        <div class="length-picker" role="radiogroup" aria-label="Number of flags">
+          <button class="length-option" data-count="10" role="radio" aria-checked="false">
+            <strong>10</strong><span>Quick round</span>
+          </button>
+          <button class="length-option active" data-count="20" role="radio" aria-checked="true">
+            <strong>20</strong><span>Classic</span>
+          </button>
+          <button class="length-option" data-count="30" role="radio" aria-checked="false">
+            <strong>30</strong><span>Expert</span>
+          </button>
+          <button class="length-option" data-count="50" role="radio" aria-checked="false">
+            <strong>50</strong><span>Master</span>
+          </button>
+        </div>
+
+        <button id="startButton" class="primary-button">Start game <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <section id="gameScreen" class="game-screen hidden" aria-live="polite">
+      <div class="game-top">
+        <button id="exitButton" class="text-button" type="button"><span aria-hidden="true">←</span> Exit</button>
+        <div class="progress-wrap">
+          <span id="progressLabel">Question 1 of 20</span>
+          <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <div class="flag-stage">
+          <img id="flagImage" alt="Country flag to identify" />
+        </div>
+
+        <div class="answer-area">
+          <p class="question-label">Which country does this belong to?</p>
+          <div id="answers" class="answers-grid"></div>
+          <div id="feedback" class="feedback hidden"></div>
+          <button id="nextButton" class="primary-button next-button hidden" type="button">Next flag <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="resultScreen" class="setup-screen hidden">
+      <div class="setup-card result-card">
+        <p class="eyebrow">Round complete</p>
+        <h1 id="resultTitle">Great run!</h1>
+        <div class="result-score">
+          <strong id="finalScore">0</strong>
+          <span id="finalLabel">correct answers</span>
+        </div>
+        <p id="resultMessage" class="setup-copy"></p>
+        <button id="playAgainButton" class="primary-button">Play again <span aria-hidden="true">↻</span></button>
+        <button id="changeLengthButton" class="secondary-button">Change length</button>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
